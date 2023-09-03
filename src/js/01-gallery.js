@@ -1,10 +1,11 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
+
+console.log(galleryItems);
+
 import simpleLightbox from 'simplelightbox';
 import "simplelightbox/dist/simple-lightbox.min.css";
 // Change code below this line
-
-console.log(galleryItems);
 
 const galleryContainer = document.querySelector(".gallery");
 
@@ -26,6 +27,8 @@ function creatGalleryEl(arr) {
 galleryContainer.insertAdjacentHTML("beforeend", creatGalleryEl(galleryItems));
 
 galleryContainer.addEventListener("click", onGalleryContainerClick);
+
+const galleryLightbox = new SimpleLightbox('.gallery a');
 
 function onGalleryContainerClick(evt) {
 
