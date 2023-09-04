@@ -1,7 +1,6 @@
 import '../css/common.css';
 import '../css/03-feedback.css';
 
-const throttle = require('lodash.throttle');
 import throttle from 'lodash.throttle';
 const STORAGE_KEY = 'feedback-form-state';
 const refs = {
@@ -29,10 +28,11 @@ refs.form.addEventListener('submit', (evt) => {
 function populateFormOutput() {
     const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (savedMessage) {
-        refs.input.value = savedMessage.email;
-        refs.textarea.value = savedMessage.message;
+        refs.input.value = savedMessage.email || '';
+        refs.textarea.value = savedMessage.message || '';
     }
 }
+
 
 
 
